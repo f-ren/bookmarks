@@ -23,7 +23,7 @@
   "homepage": "https://github.com/thinkful-ei-narwhal/bookmark-app-ren#readme",
   "dependencies": {
     "css": "^2.2.4",
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.0"
   },
   "devDependencies": {
     "css-loader": "^3.4.2",
