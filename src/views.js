@@ -5,7 +5,7 @@ function generateIntialView() {
   return `
   <form>
   <fieldset class="bookmark-selection">
-      <select>
+      <select aria-label="filter rating" >
         <option selected disabled hidden>Filter By Rating</option>
         <option value="5">☆☆☆☆☆</option>
         <option value="4">☆☆☆☆</option>
@@ -41,13 +41,12 @@ function generateBookmarkString(bookmarkItem) {
 
 function generateAddBookmark() {
   let addView = `
-  <form>
-  <div class="add-bookmark">
+  <form class="add-bookmark">
       <p><input
         type="text"
         placeholder="Title" class="bookmark-title"
-      aria-label="title" /></p>
-      <p><input type="text" placeholder="Your link here" class="bookmark-url" aria-label="url"/></p>
+      aria-label="title" required/></p>
+      <p><input type="text" placeholder="Your link here" class="bookmark-url" aria-label="url" required/></p>
       <p>
       <input
         id="star1"
@@ -55,13 +54,14 @@ function generateAddBookmark() {
         type="radio"
         value="1"
         class="bookmark-rating" 
-        aria-label="title" >1☆</input>
+        aria-label="rating" >1☆</input>
       <input
         id="star2"
         name="bookmark-rating"
         type="radio"
         value="2"
         class="bookmark-rating" 
+        aria-label="rating"
       >2☆</input>
       <input
         id="star3"
@@ -69,6 +69,7 @@ function generateAddBookmark() {
         type="radio"
         value="3"
         class="bookmark-rating" 
+        aria-label="rating"
       >3☆</input>
       <input
         id="star4"
@@ -76,6 +77,7 @@ function generateAddBookmark() {
         type="radio"
         value="4"
         class="bookmark-rating" 
+        aria-label="rating"
       >4☆</input>
       <input
         id="star5"
@@ -83,15 +85,16 @@ function generateAddBookmark() {
         type="radio"
         value="5"
         class="bookmark-rating" 
+        aria-label="rating"
       >5☆</input></p>
       <div class="clear"></div>
       <p><textarea
         class="bookmark-description"
         placeholder="Add description here"
         maxlength="100"
+        aria-label="description"
       /></p>
-      <button type="submit" class="add-bookmark-item">Add</button>
-      </div></form>
+      <button type="submit" class="add-bookmark-item" aria-label="add btn">Add</button></form>
     `;
   $('.bookmark-app-start').html(addView);
 }

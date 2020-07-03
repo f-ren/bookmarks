@@ -22,13 +22,14 @@ function addNewBookmark() {
   const desc = $('.bookmark-description').val();
   const rating = $('.bookmark-rating:checked').val();
   const item = { title, url, desc, rating };
+  console.log(item);
   api.createItem(item).then((newItem) => {
     store.addBookmark(newItem);
     view.renderBookmark();
   });
 }
 function handleNewItemSubmit() {
-  $('.bookmark-app-start').on('click', '.add-bookmark-item', (event) => {
+  $('.bookmark-app-start').on('submit', '.add-bookmark', (event) => {
     event.preventDefault();
     store.adding = false;
     addNewBookmark();
@@ -52,7 +53,7 @@ function handleDeleteItemClicked() {
   });
 }
 function handleFilter() {
-  $('.bookmark-app-start').on('change', '.filter-list', (event) => {
+  $('.bookmark-app-start').on('change', '.bookmark-selection', (event) => {
     const rating = $('option:checked').val();
     const filteredBookmarks = store.filterRating(rating);
     view.filteredRender(filteredBookmarks);
