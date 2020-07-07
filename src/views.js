@@ -13,7 +13,7 @@ function generateIntialView() {
         <option value="2">☆☆</option>
         <option value="1">☆</option>
       </select>
-      <button type="submit" class="new-form">Add</button>
+      <button class="new-form">Add</button>
       </fieldset></form>
   <h2 class="bookmark-header">Bookmarks</h2><ul class="bookmark-list">`;
 }
@@ -22,7 +22,7 @@ function generateBookmark(bookmarks) {
     return `
         <li class="bookmark-links" data-item-id="${bookmarks.id}">
           <button class="bookmark-links-btn">${bookmarks.title}</button
-          ><p class="star-rating">${bookmarks.rating}☆</p><button type='submit' class='delete-bookmark'>Delete</button>
+          ><p class="star-rating">${bookmarks.rating}☆</p><button class='delete-bookmark'>Delete</button>
         </li>`;
   } else {
     return `
@@ -31,7 +31,7 @@ function generateBookmark(bookmarks) {
   <p class="star-rating">${bookmarks.rating}☆</p>
   <p class="description-expanded">${bookmarks.desc}</p>
   <p><a class="site-link" href="${bookmarks.url}">Visit Site</a></p>
-  <button type='submit' class='delete-bookmark'>Delete</button></li>`;
+  <button class='delete-bookmark'>Delete</button></li>`;
   }
 }
 function generateBookmarkString(bookmarkItem) {
@@ -41,6 +41,7 @@ function generateBookmarkString(bookmarkItem) {
 
 function generateAddBookmark() {
   let addView = `
+  <div class="error"></div>
   <form class="add-bookmark">
       <p><input
         type="text"
@@ -54,7 +55,7 @@ function generateAddBookmark() {
         type="radio"
         value="1"
         class="bookmark-rating" 
-        aria-label="rating" >1☆</input>
+        aria-label="rating" required >1☆</input>
       <input
         id="star2"
         name="bookmark-rating"
@@ -98,7 +99,16 @@ function generateAddBookmark() {
     `;
   $('.bookmark-app-start').html(addView);
 }
-
+function generateError(error) {
+  console.log(error);
+  return `<p class="err">${error}</p>`;
+}
+function renderError() {
+  if (store.error) {
+    let err = generateError(store.error);
+    $('.error').html(err);
+  }
+}
 function renderBookmark() {
   if (!store.adding) {
     let bookmarkItems = [...store.bookmark];
@@ -120,6 +130,7 @@ function filteredRender(filteredBookmarks) {
 
 export default {
   renderBookmark,
+  renderError,
   generateAddBookmark,
   generateBookmarkString,
   filteredRender,

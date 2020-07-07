@@ -22,11 +22,16 @@ function addNewBookmark() {
   const desc = $('.bookmark-description').val();
   const rating = $('.bookmark-rating:checked').val();
   const item = { title, url, desc, rating };
-  console.log(item);
-  api.createItem(item).then((newItem) => {
-    store.addBookmark(newItem);
-    view.renderBookmark();
-  });
+  api
+    .createItem(item)
+    .then((newItem) => {
+      store.addBookmark(newItem);
+      view.renderBookmark();
+    })
+    .catch((error) => {
+      store.setError(error.message);
+      view.renderError();
+    });
 }
 function handleNewItemSubmit() {
   $('.bookmark-app-start').on('submit', '.add-bookmark', (event) => {

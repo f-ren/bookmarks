@@ -36,7 +36,9 @@ function filterRating(value) {
   );
   return filteredBookmarks;
 }
-
+function setError(error) {
+  this.error = error;
+}
 export default {
   bookmark,
   adding,
@@ -47,4 +49,5 @@ export default {
   findId,
   toggleViews,
   filterRating,
+  setError,
 };

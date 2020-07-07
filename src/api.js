@@ -5,7 +5,7 @@ const BASE_URL = 'https://thinkful-list-api.herokuapp.com/ren';
 function listApiFetch(...args) {
   let error;
   return fetch(...args)
-    .then(res => {
+    .then((res) => {
       if (!res.ok) {
         error = { code: res.status };
         if (!res.headers.get('content-type').includes('json')) {
@@ -15,7 +15,7 @@ function listApiFetch(...args) {
       }
       return res.json();
     })
-    .then(data => {
+    .then((data) => {
       if (error) {
         error.message = data.message;
         return Promise.reject(error);
@@ -29,13 +29,12 @@ function getItems() {
 
 function createItem(item) {
   const newBookmark = JSON.stringify(item);
-  console.log(newBookmark);
   return listApiFetch(`${BASE_URL}/bookmarks`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: newBookmark
+    body: newBookmark,
   });
 }
 
@@ -44,15 +43,15 @@ function updateItem(id, updateData) {
   return listApiFetch(`${BASE_URL}/bookmarks/${id}`, {
     method: 'PATCH',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: newData
+    body: newData,
   });
 }
 
 function deleteItem(id) {
   return listApiFetch(BASE_URL + '/bookmarks/' + id, {
-    method: 'DELETE'
+    method: 'DELETE',
   });
 }
 
@@ -60,5 +59,5 @@ export default {
   getItems,
   createItem,
   updateItem,
-  deleteItem
+  deleteItem,
 };
