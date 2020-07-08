@@ -5,15 +5,16 @@ function generateIntialView() {
   return `
   <form>
   <fieldset class="bookmark-selection">
+  <h2>Filter Bookmarks:</h2>
       <select aria-label="filter rating" >
-        <option selected disabled hidden>Filter By Rating</option>
+        <option selected disabled hidden>Ratings:</option>
         <option value="5">☆☆☆☆☆</option>
         <option value="4">☆☆☆☆</option>
         <option value="3">☆☆☆</option>
         <option value="2">☆☆</option>
         <option value="1">☆</option>
       </select>
-      <button class="new-form">Add</button>
+      <button class="new-form">Add New Bookmark</button>
       </fieldset></form>
   <h2 class="bookmark-header">Bookmarks</h2><ul class="bookmark-list">`;
 }
