@@ -5,7 +5,7 @@ function generateIntialView() {
   return `
   <form>
   <fieldset class="bookmark-selection">
-  <h2>Filter Bookmarks:</h2>
+  <label>Filter Bookmarks:</label>
       <select aria-label="filter rating" >
         <option selected disabled hidden>Ratings:</option>
         <option value="5">☆☆☆☆☆</option>
