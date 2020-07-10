@@ -51,10 +51,16 @@ function handleDeleteItemClicked() {
   $('.bookmark-app-start').on('click', '.delete-bookmark', (event) => {
     event.preventDefault();
     const id = getItemIdFromElement(event.currentTarget);
-    api.deleteItem(id).then(() => {
-      store.deleteBookmark(id);
-      view.renderBookmark();
-    });
+    api
+      .deleteItem(id)
+      .then(() => {
+        store.deleteBookmark(id);
+        view.renderBookmark();
+      })
+      .catch((error) => {
+        store.setError(error.message);
+        view.renderError();
+      });
   });
 }
 function handleFilter() {

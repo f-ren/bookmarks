@@ -16,7 +16,8 @@ function generateIntialView() {
       </select>
       <button class="new-form">Add New Bookmark</button>
       </fieldset></form>
-  <h2 class="bookmark-header">Bookmarks</h2><ul class="bookmark-list">`;
+  <h2 class="bookmark-header">Bookmarks</h2>
+  <div class="error></div><ul class="bookmark-list">`;
 }
 function generateBookmark(bookmarks) {
   if (!bookmarks.expanded) {
