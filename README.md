@@ -1,15 +1,28 @@
-Live Page: https://thinkful-ei-narwhal.github.io/ren-bookmark-app/
+# Ren's Bookmark App
 
-User Stories:
+Save and Filter all your bookmarking needs! :)
 
-Add bookmarks to list containing: id, title, url, rating, description
+## Live Page: https://f-ren.github.io/bookmarks/
 
-See list of bookmarks when first opening display only title and rating
+---
 
-Display more details when click on a bookmark, display a visit site button --- toggling
+## User Stories:
 
-Remove bookmarks from list
+- Add bookmarks to list containing:
 
-Give feedback when a bookmark cant be added (title and url required)
+  - title - String
+  - url - String
+  - rating - Number - 1 to 5
+  - description - String
 
-Select a filter dropdown for minimum rating
+- See list of bookmarks when first opening the site
+
+  - display only title and rating
+
+- Clicking on a bookmark toggles more details, including the URL to visit the site
+
+- Remove bookmarks from list
+
+- Form Validation on creating Bookmarks
+
+- Filter bookmarks by Rating

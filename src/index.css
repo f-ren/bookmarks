@@ -1,12 +1,10 @@
 * {
   box-sizing: border-box;
-  background-color: gray;
-  color: white;
 }
 .header {
   text-align: center;
   font-size: 40px;
-  color: gold;
+  color: #b77008;
 }
 .bookmark-header {
   text-align: center;
@@ -20,6 +18,10 @@
 .new-form {
   margin: 30px;
 }
+
+ul {
+  padding: 0px;
+}
 li {
   display: flex;
   justify-content: space-around;
@@ -27,24 +29,34 @@ li {
   padding: 20px;
   border: 1px solid white;
   list-style: none;
+  border: 1px solid #ccc;
+}
+
+@media screen and (max-width: 700px) {
+  li {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .bookmark-links-btn {
   border: none;
 }
 .bookmark-links-btn:hover {
-  color: gold;
+  color: #b77008;
   text-decoration: underline;
 }
 .site-link {
   text-decoration: none;
 }
 .site-link:hover {
-  color: gold;
+  color: #b77008;
   text-decoration: underline;
 }
 .star-rating {
-  color: gold;
+  color: #b77008;
+  font-weight: 700;
+  font-size: 20px;
 }
 .add-bookmark {
   display: flex;
@@ -52,21 +64,18 @@ li {
   align-items: center;
 }
 
-input::placeholder {
+input,
+textarea {
   padding: 5px;
-  color: white;
 }
-.bookmark-description {
-  resize: none;
-}
-.bookmark-description::placeholder {
-  padding: 5px;
-  color: white;
+
+textarea.bookmark-description {
+  min-width: 50vw;
+  min-height: 100px;
 }
 
 .err {
   color: red;
   font-weight: bold;
-  text-shadow: 1px 1px 1px black;
   text-align: center;
 }
